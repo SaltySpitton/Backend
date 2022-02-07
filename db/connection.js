@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
-const mongoURI = process.env.NODE_ENV === 'production' 
-? process.env.DB_URL
-: process.env.MONGO_URI
+const mongoURI = "mongodb://localhost:27017/devHelp"
+
 
 mongoose.connect(mongoURI, {
     useNewUrlParser: true, 
