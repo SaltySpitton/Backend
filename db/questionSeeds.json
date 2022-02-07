@@ -1,0 +1,42 @@
+[
+    {
+        "id": "q1", 
+        "date" : "10/01/2021",
+        "tags" : ["python"], 
+        "question" : "How do I have text appear in my console from an output? I keep trying to console.log but it's not working",
+        "editHistory" : "[]",
+        "votes" : 1,
+        "views" : 60,
+        "userId" : "1"
+    },
+    {
+        "id": "q2", 
+        "date" : "10/20/2021",
+        "tags" : ["javascript"], 
+        "question" : "How can I iterate through an array of items?",
+        "editHistory" : "[]",
+        "votes" : 3,
+        "views" : 5,
+        "userId" : "2"
+    },
+    {
+        "id": "q3", 
+        "date" : "10/20/2021",
+        "tags" : ["node", "mongoose"], 
+        "question" : "How do you update nested items in a mongoose document?",
+        "editHistory" : "[]",
+        "votes" : 10,
+        "views" : 100,
+        "userId" : "3"
+    },
+    {
+        "id": "q4", 
+        "date" : "10/21/2021",
+        "tags" : ["react", "react-js", "components"], 
+        "question" : ["I have a component called tileGroup that has a property that is a collection(array) of other properties. The parent component 'tileGroup' renders a list of child components by using each set of properties in the collection to create a new component. Right now I am individually mapping each property from the set to the child component but this will become cumbersome if the property count for a component increases and I'm sure there is a cleaner, simpler way to do it... How can I pass the full set of properties on to the child component without remapping each property?"],
+        "editHistory" : "[{10/14/21 14:21}]",
+        "votes" : 73,
+        "views" : 68000,
+        "userId" : "1"
+    }
+]
