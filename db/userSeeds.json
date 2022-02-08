@@ -1,62 +1,18 @@
 [
     {
         "id": 1, 
-        "username" : "lavaBoi", 
-        "displayName" : "user18124240",
-        "fullName" : "Jonie B Jones",
-        "email" : "lavaBoi@hotmail.com",
-        "registrationDate" : "01/01/2022",
-        "karma" : 244,
-        "location" : "AZ", 
-        "links" : {
-                "website" : "hotlavame.com", 
-                "twitter":"bBopBoy",
-                "github": "bestCoderEver"
-        }
+        "email" : "lavaBoi@hotmail.com"
     },
     {
         "id": 2, 
-        "username" : "zipzD", 
-        "displayName" : "northQuest",
-        "fullName" : "Sara Langstun",
-        "email" : "saLa@gmail.com",
-        "registrationDate" : "11/18/2021",
-        "karma" : 100,
-        "location" : "OR", 
-        "links" : {
-                "website" : "sarame.com", 
-                "twitter":"sneakySar",
-                "github": "codingCoder"
-        }
+        "email" : "saLa@gmail.com"
     },
     {
         "id": 3, 
-        "username" : "twingly", 
-        "displayName" : "user1834444",
-        "fullName" : "Ant Parker",
-        "email" : "lax@aol.org",
-        "registrationDate" : "05/05/2021",
-        "karma" : 1000,
-        "location" : "ID", 
-        "links" : {
-                "website" : "antWorls.dev", 
-                "twitter":"auntAnt",
-                "github": "slashAnt"
-        }
+        "email" : "lax@aol.org"
     },
     {
         "id": 4, 
-        "username" : "zara", 
-        "displayName" : "zaraCodes2day",
-        "fullName" : "Zara D Doze",
-        "email" : "zd@hotmail.com",
-        "registrationDate" : "02/01/2022",
-        "karma" : 7,
-        "location" : "CA", 
-        "links" : {
-                "website" : "zaraD.com", 
-                "twitter":"rainOnZain",
-                "github": "zarasDev"
-        }
+        "email" : "zd@hotmail.com"
     }
 ]

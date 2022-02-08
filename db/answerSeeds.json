@@ -1,42 +1,41 @@
 [
     {
-        "id": "a1", 
-        "date" : "10/15/2021 11:21",
-        "answer" :"In Python we use the write statement to log out data to the console.",
-        "comments" : false,
-        "accepted" : false,
-        "votes" : 0,
-        "userId" : "1",
-        "questionId": "q1"
+        "id": "answer1", 
+        "date" : "12/15/2021 11:21",
+        "textResponse" :"Use the built-in .reversed(/) function, To also access the original index, use enumerate() on your list before passing it to reversed():",
+        "votes" : 1516,
+        "accepted": "false",
+        "user" : "1",
+        "questionId": "ques1"
     },
     {
-        "id": "a2", 
+        "id": "answer2", 
         "date" : "10/21/2021 15:34",
-        "answer":".Map array method is commonly used to iterate through arrays in Javascript, you also have the options to use loops, such as the For loop and While loop.",
-        "comments" : true,
+        "textResponse":"ECMAScript 6 (ES6) introduces a new type of literal, namely template literals. They have many features, variable interpolation among others, but most importantly for this question, they can be multiline. A template literal is delimited by backticks:",
+        "codeResponse" : "var html = ` <div> <span>Some HTML here</span> </div> `;",
+        "votes" : 4045,
         "accepted" : true,
-        "votes" : 130,
         "userId" : "2",
-        "questionId": "q2"
+        "questionId": "ques2"
     },
     {
-        "id": "a3", 
+        "id": "answer3", 
         "date" : "10/22/2021 19:53",
-        "answer" : "For those use cases, the easiest thing is to fallback to the JS API instead of JSX. return tileSimple(tile);To understand why it works, look at the generated version of the version you want using the JSX Compiler tool ",
-        "comments" : false,
+        "textResponse"  : "I'm am very disappointed by the accepted answers in this question. This will not scale. If you read the fine print on cursor.skip( ): The cursor.skip() method is often expensive because it requires the server to walk from the beginning of the collection or index to get the offset or skip position before beginning to return result. As offset (e.g. pageNumber above) increases, cursor.skip() will become slower and more CPU intensive. With larger collections, cursor.skip() may become IO bound.  To achieve pagination in a scaleable way combine a limit( ) along with at least one filter criterion, a createdOn date suits many purposes.",
+        "codeResponse" : " MyModel.find( { createdOn: { $lte: request.createdOnBefore } } )  .limit( 10 )  .sort( '-createdOn' )",
+        "votes" : 317,
         "accepted" : false,
-        "votes" : 32,
         "userId" : "3",
-        "questionId": "q4"
+        "questionId": "ques3"
     },
     {
-        "id": "a4", 
-        "date" : "10/23/2021 21:10",
-        "answer" : "Apparently transferPropsTo is being deprecated. With recent versions of React you can use JSX spread attributes , More info about this here: Deprecating transferPropsTo",
-        "comments" : true,
+        "id": "answer4", 
+        "date" : "12/25/2021 21:10",
+        "textResponse" : "Think of it like you're just calling JavaScript functions. You can't use a for loop where the arguments to a function call would go: See how the function tbody is being passed a for loop as an argument leading to a syntax error. But you can make an array, and then pass that in as an argument:",
+        "codeResponse" : "MyModel.find({ createdOn: { $lte: request.createdOnBefore } } ) .limit( 10 ) .sort('-createdOn' )",
+        "votes" : 1538,
         "accepted" : true,
-        "votes" : 130,
-        "userId" : "1",
-        "questionId": "q4"
+        "userId" : "4",
+        "questionId": "ques4"
     }
 ]

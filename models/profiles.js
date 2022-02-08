@@ -1,20 +1,18 @@
 const mongoose = require('../db/connection')
 
 const profileSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'User'
-    },
-    dateJoined: {
-        type: String, 
-        required: true
-    }, 
     name: {
         type: String
     },
-    nickname: {
+    displayName: {
         type: String
     }, 
+    about: {
+        type: String
+    }, 
+    avatar: {
+        type: String, 
+    },
     email: {
         type: String, 
     },
@@ -27,12 +25,14 @@ const profileSchema = new mongoose.Schema({
     twitter : {
         type: String
     },
-    about: {
-        type: String
-    }, 
-    avatar: {
+    dateJoined: {
         type: String, 
-    }
+        required: true
+    }, 
+    user: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'User'
+    },
 })
 const Profile = mongoose.model('Profile', profileSchema)
 
