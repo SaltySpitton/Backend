@@ -1,0 +1,53 @@
+[
+    {
+        "id": "prof1", 
+        "name" : "Jonie B Jones",
+        "displayName" :  "spyBoi",
+        "about": "Super Spy by day, super Coder By Night",
+        "avatar" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6rULJa2YoAQgGxO8hQPB-tK-MALfteIoSgw&usqp=CAU",
+        "email" : "spyBoi@hotmail.com",
+        "website" : "hotlavame.com",
+        "twitter":"bBopBoy",
+        "github": "bestCoderEver",
+        "dateJoined" : "01/01/2022",
+        "user" : 1
+    },
+    {
+        "id": "prof2", 
+        "name" : "Sara Langstun",
+        "displayName" : "northQuest",
+        "avatar" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE37YbH_wRd_dbCX8X-EB-I1zqA0Rb0Jju8g&usqp=CAU",
+        "email" : "saLa@gmail.com",
+        "website" : "sarame.com", 
+        "twitter":"sneakySar",
+        "github": "codingCoder",
+        "dateJoined" : "11/18/2021",
+        "user" : 2
+    },
+    {
+        "id":"prof3", 
+        "name" : "Ant Parker",
+        "displayName" : "twingly",
+        "about": "Hey, doing stuff here and there, ask me about it",
+        "avatar" : "https://avatarfiles.alphacoders.com/180/thumb-1920-180216.jpg",
+        "email" : "lax@aol.org",
+        "website" : "antWorls.dev", 
+        "twitter":"auntAnt",
+        "github": "slashAnt",
+        "dateJoined" : "05/05/2021",
+        "user": 3
+    },
+    {
+        "id":"prof4", 
+        "name" : "Zara D Doze",
+        "displayName" : "zaraCodes2day",
+        "about": "Hi! I am a passionate developer who by day works 9-5 at a company ryming with Zloogle, by night I am creating awesome AI!",
+        "avatar" : "https://forums.heroesofnewerth.com/uploads/monthly_2020_08/32.thumb.jpg.46c2cadec656a63e6e0a038d712ef439.jpg",
+        "email" : "zd@hotmail.com",
+        "website" : "zaraD.com", 
+        "twitter":"rainOnZain",
+        "github": "zarasDev",
+        "dateJoined" : "02/01/2022",
+        "user" : 4
+    }
+]
