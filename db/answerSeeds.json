@@ -1,0 +1,42 @@
+[
+    {
+        "id": "a1", 
+        "date" : "10/15/2021 11:21",
+        "answer" :"In Python we use the write statement to log out data to the console.",
+        "comments" : false,
+        "accepted" : false,
+        "votes" : 0,
+        "userId" : "1",
+        "questionId": "q1"
+    },
+    {
+        "id": "a2", 
+        "date" : "10/21/2021 15:34",
+        "answer":".Map array method is commonly used to iterate through arrays in Javascript, you also have the options to use loops, such as the For loop and While loop.",
+        "comments" : true,
+        "accepted" : true,
+        "votes" : 130,
+        "userId" : "2",
+        "questionId": "q2"
+    },
+    {
+        "id": "a3", 
+        "date" : "10/22/2021 19:53",
+        "answer" : "For those use cases, the easiest thing is to fallback to the JS API instead of JSX. return tileSimple(tile);To understand why it works, look at the generated version of the version you want using the JSX Compiler tool ",
+        "comments" : false,
+        "accepted" : false,
+        "votes" : 32,
+        "userId" : "3",
+        "questionId": "q4"
+    },
+    {
+        "id": "a4", 
+        "date" : "10/23/2021 21:10",
+        "answer" : "Apparently transferPropsTo is being deprecated. With recent versions of React you can use JSX spread attributes , More info about this here: Deprecating transferPropsTo",
+        "comments" : true,
+        "accepted" : true,
+        "votes" : 130,
+        "userId" : "1",
+        "questionId": "q4"
+    }
+]
