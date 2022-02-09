@@ -1,0 +1,10 @@
+const mongoose = require('./connection')
+const Question = require('../models/questions.js')
+const Answer = require('../models/answers')
+const User = require('../models/users')
+const Profile = require('../models/profiles')
+
+const userSeeds = require('./userSeeds.json')
+const profileSeeds = require('./profileSeeds.json')
+const questionSeeds = require('./questionSeeds.json')
+const answerSeeds = require('./answerSeeds.json')
