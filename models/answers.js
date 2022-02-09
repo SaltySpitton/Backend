@@ -5,12 +5,9 @@ const answerSchema = new mongoose.Schema({
         type: String, 
         required: true
     },
-    textResponse:{
+    response:{
         type: String, 
         required: true,   
-    },
-    codeResponse: {
-        type: String
     },
     votes: {
         type: Number, 

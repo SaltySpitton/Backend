@@ -4,7 +4,7 @@ const profileSchema = new mongoose.Schema({
     name: {
         type: String
     },
-    displayName: {
+    nickName: {
         type: String
     }, 
     about: {
