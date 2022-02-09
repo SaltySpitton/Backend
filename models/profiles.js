@@ -27,7 +27,7 @@ const profileSchema = new mongoose.Schema({
   },
   dateJoined: {
     type: String,
-    required: true,
+    timestamps: true,
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
