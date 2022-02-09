@@ -1,6 +1,7 @@
 const mongoose = require("../db/connection");
 
 const profileSchema = new mongoose.Schema({
+
   name: {
     type: String,
   },
@@ -35,5 +36,6 @@ const profileSchema = new mongoose.Schema({
   },
 });
 const Profile = mongoose.model("Profile", profileSchema);
+
 
 module.exports = Profile;
