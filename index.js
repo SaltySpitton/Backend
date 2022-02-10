@@ -9,6 +9,8 @@ const cookieParser = require("cookie-parser");
 const methodOverride = require("method-override");
 const session = require("express-session");
 const expressSession = require("express-session");
+const mongoSanitize = require('express-mongo-sanitize')
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -40,6 +42,14 @@ const routeHit = async (req, res, next) => {
   next();
 };
 app.use(routeHit);
+
+app.use(
+  mongoSanitize({
+    allowDots: true,
+    replaceWith: '_',
+  }),
+);
+
 
 app.use("/users", userController);
 app.use("/questions", questionsControllers);
