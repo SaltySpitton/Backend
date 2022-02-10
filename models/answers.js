@@ -1,9 +1,10 @@
-const mongoose = require('../db/connection')
+const mongoose = require("../db/connection")
 
 const answerSchema = new mongoose.Schema({
     date: {
         type: String, 
-        required: true
+        required: true, 
+        timestamps: true
     },
     response:{
         type: String, 
@@ -19,13 +20,9 @@ const answerSchema = new mongoose.Schema({
     },
     user: {
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'User'
-    }, 
-    questionId: {
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Question'
+        ref: "User"
     }
 })
 
-const Answer = mongoose.model('Answer', answerSchema)
+const Answer = mongoose.model("Answer", answerSchema)
 module.exports = Answer
