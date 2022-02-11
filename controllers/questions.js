@@ -7,10 +7,6 @@ const User = require("../models/users");
 
 //POTENTIALLY WILL COME BACK TO ADD BACKEND CHECKS & HARD STOPS IF DATA IS NOT PRESENT : like if no title (I know the schema stops that but maybe something extra for another thing?)/ etc
 
-
-
-        
-
             //pagination - all question route : INDEX [stretch]
 router.get('/', async(req,res,next) => {
     try{
