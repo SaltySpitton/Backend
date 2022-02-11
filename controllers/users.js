@@ -52,7 +52,7 @@ router.get("/", async(req, res, next) => {
   }catch(err){
     next(err)
   }
-  console.log(req.user);
+  // console.log(req.user);
   // res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
 
