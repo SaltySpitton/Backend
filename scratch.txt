@@ -1,0 +1,158 @@
+
+Qid: 62045ac9799c186a21e4f370
+UserId: 62042ca7f26e20997b89342d
+
+answers
+
+
+2: 62057140259efd9ce38844fe
+USER:"620482e05db7716e17bb10af" 
+
+
+
+    "6204c92887b135c2495fbacb",
+        "6204ca3287b135c2495fbad0",
+        "6204ca8e7064ff0da5369a8f"
+
+
+
+q-Answeer     "6204c75b87cd1e7764f219be"
+
+
+
+questionId = "62044c8c7823b3e62885794a"
+User Question = "62042ca7f26e20997b89342d"
+
+question Answer = 6205746cc4090102e08a6823
+Answer User = 620483a81d207942864a50f2
+
+
+POST NEW QUESTION - QuestionID/UserID
+http://localhost:4200/answers/62044c8c7823b3e62885794a/620483a81d207942864a50f2
+
+
+
+router.delete('/:questionId', async(req,res,next) => {
+    try{
+        const deleteQuestion = await Question.findOneAndDelete({_id: req.params.questionId})
+        const deleteAnswers = await deleteQuestion.answers.deleteMany
+        deleteQuestion ? 
+        res.status(200).json(deleteQuestion) :
+        res.status(400).json({error: error.message})
+    }catch(err){
+        next(err)
+    }
+})
+
+
+
+
+
+
+
+
+
+
+get all currently, get all user answers:  users/userId/answers
+http://localhost:4200/users/620483a81d207942864a50f2/answers
+
+//how to get the question from the user profile all answers? - move to question route : view all user answers view all user questions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+answers:
+
+[
+    {
+        "date" : "12/15/2021 11:21",
+        "response" :"Use the built-in .reversed(/) function, To also access the original index, use enumerate() on your list before passing it to reversed():",
+        "votes" : 1516,
+        "accepted": "false",
+        "questionId" : "620333189f8a343c72eacb04"
+    },
+    {
+        "date" : "10/21/2021 15:34",
+        "response":"ECMAScript 6 (ES6) introduces a new type of literal, namely template literals. They have many features, variable interpolation among others, but most importantly for this question, they can be multiline. A template literal is delimited by backticks: var html = ` <div> <span>Some HTML here</span> </div> `;",
+        "votes" : 4045,
+        "accepted" : true,
+        "questionId" : "620333189f8a343c72eacb05"
+    },
+    {
+        "date" : "10/22/2021 19:53",
+        "response"  : "I'm am very disappointed by the accepted answers in this question. This will not scale. If you read the fine print on cursor.skip( ): The cursor.skip() method is often expensive because it requires the server to walk from the beginning of the collection or index to get the offset or skip position before beginning to return result. As offset (e.g. pageNumber above) increases, cursor.skip() will become slower and more CPU intensive. With larger collections, cursor.skip() may become IO bound.  To achieve pagination in a scaleable way combine a limit( ) along with at least one filter criterion, a createdOn date suits many purposes. MyModel.find( { createdOn: { $lte: request.createdOnBefore } } )  .limit( 10 )  .sort( '-createdOn' )",
+        "votes" : 317,
+        "accepted" : false,
+        "questionId" :"620333189f8a343c72eacb06"
+    },
+    {
+        "date" : "12/25/2021 21:10",
+        "response" : "Think of it like you're just calling JavaScript functions. You can't use a for loop where the arguments to a function call would go: See how the function tbody is being passed a for loop as an argument leading to a syntax error. But you can make an array, and then pass that in as an argument: MyModel.find({ createdOn: { $lte: request.createdOnBefore } } ) .limit( 10 ) .sort('-createdOn' )",
+        "votes" : 1538,
+        "accepted" : true,
+        "questionId" :  "620333189f8a343c72eacb07"
+    }
+]
+
+
+questions:
+
+[
+    {
+         
+        "date" : "11/05/2021",
+        "tags" : "python", 
+        "title" : "Traverse a list in reverse order in Python",
+        "body":"So I can start from collection[len(collection)-1] and end in collection[0]. I also want to be able to access the loop index.",
+        "votes" : 906,
+        
+    },
+    {
+      
+        "date" : "10/20/2021",
+        "tags" : "javascript", 
+        "title" : "Creating multiline strings in JavaScript",
+        "body":"I have A Sentence broken into 4 seperate lines in Ruby. I want to convert this code into JavaScript. How can I have multiline strings in JS??",
+        "votes" : 3101,
+      
+    },
+    {
+       
+        "date" : "06/15/2020",
+        "tags" : "mongoose", 
+        "title"  : "How to paginate with Mongoose in Node.js?",
+        "body":"I am writing a webapp with Node.js and mongoose. How can I paginate the results I get from a .find() call? I would like a functionality comparable to 'LIMIT 50,100' in SQL.",
+        "votes" : 287
+        
+    },
+    {
+     
+        "date" : "12/21/2021",
+        "tags" :  "react", 
+        "title"  : "Loop inside React JSX",
+        "body" : "I'm trying to do something like the following in React JSX (where ObjectRow is a separate component): <tbody> for (var i=0; i < numrows; i++) {<ObjectRow/>} </tbody>  I realize and understand why this isn't valid JSX, since JSX maps to function calls. However, coming from template land and being new to JSX, I am unsure how I would achieve the above (adding a component multiple times).",
+        "votes" : 73
+        
+    }
+]
+
+
+  {
+         
+        "date" : "02/05/2022",
+        "tags" : "react", 
+        "title" : "integrating class components to functional components",
+        "body":"What in the class component do we need for a functional component?",
+        "votes" : 906,
+        
+    }
