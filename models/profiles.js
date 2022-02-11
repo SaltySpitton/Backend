@@ -13,9 +13,6 @@ const profileSchema = new mongoose.Schema({
   avatar: {
     type: String,
   },
-  email: {
-    type: String,
-  },
   github: {
     type: String,
   },
