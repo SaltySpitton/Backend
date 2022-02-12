@@ -1,19 +1,43 @@
 const express = require("express");
 const router = express.Router();
+const mongoosePaginate = require('mongoose-paginate-v2')
 const Question = require("../models/questions");
 const Answer = require("../models/answers");
 const User = require("../models/users");
-// const req = require("express/lib/request");
+const { get } = require("./users");
 
-//POTENTIALLY WILL COME BACK TO ADD BACKEND CHECKS & HARD STOPS IF DATA IS NOT PRESENT : like if no title (I know the schema stops that but maybe something extra for another thing?)/ etc
-
-            //pagination - all question route : INDEX [stretch]
 router.get('/', async(req,res,next) => {
+    const getPagination = (page,size) => {
+        const limit = size ? +size : 20
+        const offset = page ? page * limit : 0
+        return {limit, offset}
+    }
     try{
-        const allQuestions = await Question.find({})
-        allQuestions ? 
-        res.status(200).json(allQuestions) :
-        res.status(400).json({error: error.message})
+        if(req.query){
+            const { page, size, tags } = req.query;
+            let condition = tags
+              ? { tags: { $regex: new RegExp(tags), $options: "i" } }
+              : {}
+            const {limit, offset} = getPagination(page-1,size) 
+
+            allQuestions = await Question.paginate(condition, {offset, limit})
+            .then((data) => {
+                res.status(200).json({
+                    totalItems: data.totalDocs,
+                    questions: data.docs, 
+                    totalPages: data.totalPages,
+                    currentPage: data.page,
+                });
+            })
+            .catch(err => {
+                res.status(500).json({error: error.message || 'Error while retrieving Questions'})
+            })
+        } else {
+            allQuestions = await Question.find({})
+            allQuestions ? 
+            res.status(200).json(allQuestions) :
+            res.status(400).json({error: error.message ||  'Error while retrieving Questions'})
+        }
     }catch(err){
        next(err)
     }
@@ -22,8 +46,6 @@ router.get('/', async(req,res,next) => {
 //post a new question - linked to User Profile : LEAVING FOR UPDATES
 router.post('/:userId', async(req,res, next) => {
     try{
-        //params will be replaced with passport info once used, we will pull the current session user and params will be deleted
-        
         const questionData = {
             ...req.body, 
             user: req.params.userId
@@ -86,5 +108,6 @@ module.exports = router;
 
 // - Get All of Current Users Questions
 // - Get all Questions Based On Query Of tags(sylvie is working on regexp function (can either be a query or param here - will check in can leave for now)
+//POSTING A QUESTION - linking to user
 // - pagination of returned data in the '/' get all index route 
 //CASCADING DELETION OF QUESTIONS -> answers Once we delete the users , current if you delete a question it deletes all answers

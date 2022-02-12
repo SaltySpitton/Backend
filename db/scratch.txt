@@ -1,3 +1,61 @@
+have no pagination :
+const options = {
+  pagination: false,
+}
+
+paginate data
+//offset: quantity of items to skip
+//limit: quantity of items to fetch
+//{ offset: 3 }: skip first 3 items, fetch 5 remaining items.
+// { limit: 2 }: fetch first 2 items.
+//select options for getting only title and description on each doc:{ select: 'title description', offset: 3, limit: 2 })
+//use limit=0 to get only metadata (total documents): Question.paginate({}, { limit: 0 })
+
+
+//query (condition), offset and limit:{ title: { $regex: new RegExp("mon"), $options: "i" } }, { offset: 1, limit: 2 })
+/* example return
+"docs": [
+        {
+          "title": "bezkoder Tut#5 Mongoose",
+          ..
+        },
+        {
+          "title": "bezkoder Tut#8 Mongoose Paginate",
+          ..
+        }
+      ],
+*/
+
+//with custom return labels:
+/*
+const myCustomLabels = {
+  totalDocs: 'totalItems',
+  docs: 'tutorials',
+  limit: 'pageSize',
+  page: 'currentPage',
+  nextPage: 'next',
+  prevPage: 'prev',
+  totalPages: 'totalPages',
+  pagingCounter: 'slNo',
+  meta: 'paginator'
+};
+Tutorial.paginate(condition, { offset: 3, limit: 2, customLabels: myCustomLabels })
+
+
+limit = size
+offset = page * size
+ start counting from page 0.
+*/
+
+
+
+
+
+
+
+
+
+
 answers:
 
 [
