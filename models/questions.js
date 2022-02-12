@@ -1,5 +1,8 @@
 const { mongo } = require("mongoose");
 const mongoose = require("../db/connection");
+const mongoosePaginate = require('mongoose-paginate-v2');
+const { query } = require("express");
+
 
 const questionSchema = new mongoose.Schema({
   tags: {
@@ -37,5 +40,8 @@ questionSchema.post('findOneAndDelete', async function(question){
   }
 })
 
+questionSchema.plugin(mongoosePaginate)
+
 const Question = mongoose.model("Question", questionSchema);
 module.exports = Question;
+
