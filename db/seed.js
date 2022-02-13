@@ -9,9 +9,22 @@ const profileSeeds = require("./profileSeeds.json");
 const questionSeeds = require("./questionSeeds.json");
 const answerSeeds = require("./answerSeeds.json");
 
-User.deleteMany({})
+// User.deleteMany({})
+//   .then(() => {
+//     return User.insertMany(userSeeds)
+//   })
+//   .then((data) => console.log(data))
+//   .catch((err) => {
+//     console.log(err);
+//   })
+//   .finally(() => {
+//     process.exit();
+//   });
+  
+
+Profile.deleteMany({})
   .then(() => {
-    return User.create([{"email" : "saLa@gmail.com"},  {"email" : "lavaBoi@hotmail.com"}])
+    return User.insertMany(profileSeeds)
   })
   .then((data) => console.log(data))
   .catch((err) => {
@@ -20,7 +33,6 @@ User.deleteMany({})
   .finally(() => {
     process.exit();
   });
-  
 
 
 // Question.deleteMany({})
