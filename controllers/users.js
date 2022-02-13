@@ -13,7 +13,8 @@ router.post("/login", (req, res, next) => {
     else {
       req.logIn(user, (err) => {
         if (err) throw err;
-        res.send("Successfully Authenticated");
+        res.status(200).json(req.user);
+        // res.send("Successfully Authenticated");
         console.log(req.user);
       });
     }
@@ -44,12 +45,12 @@ router.get("/", (req, res) => {
 
 router.get("/logout", (req, res) => {
   req.logout();
-  res.send('user logged out')
+  res.send("user logged out");
   // res.redirect('http://localhost:3000/questions');
   // console.log("user logged out")
 });
 
-//EDIT USER 
+//EDIT USER
 //DELETE USER
 
 module.exports = router;
