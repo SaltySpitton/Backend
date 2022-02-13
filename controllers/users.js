@@ -33,14 +33,19 @@ router.post("/register", (req, res) => {
         email: req.body.email,
       });
       await newUser.save();
-      res.send("User Created");
+      req.logIn(newUser, (err) => {
+        if (err) throw err;
+      });
+      console.log(req.user, "Was Created and LoggedIn");
+      res.send("User Created and LoggedIn");
       // res.redirect('http://localhost:3000/questions');
     }
   });
 });
 router.get("/", (req, res) => {
   console.log(req.user);
-  res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
+  res.status(200).json(req.user)
+  // res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
 
 router.get("/logout", (req, res) => {
