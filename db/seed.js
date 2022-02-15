@@ -45,6 +45,18 @@ Profile.deleteMany({})
 //     process.exit();
 //   });
 
+
+
+// Question.deleteMany({})
+//   .then(() => {
+//     return Question.create(questionSeeds);
+//   })
+//   .then((data) => console.log(data))
+//   .catch((err) => console.log(err))
+//   .finally(() => {
+//     process.exit();
+//   });
+
 // Answer.deleteMany({})
 //   .then(() => {
 //     return Answer.create(answerSeeds);
