@@ -8,6 +8,7 @@ const questionSchema = new mongoose.Schema(
     tags: {
       type: Array,
       required: true,
+      
     },
     title: {
       type: String,
