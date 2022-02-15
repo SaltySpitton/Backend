@@ -5,6 +5,8 @@ const Question = require("../models/questions");
 const Answer = require("../models/answers");
 const User = require("../models/users");
 const { get } = require("./users");
+const validateJoiSchema = require("../middleware/joiSchema");
+const ExpressError = require("../middleware/expressError");
 
 router.get("/", async (req, res, next) => {
   const getPagination = (page, size) => {
@@ -48,7 +50,7 @@ router.get("/", async (req, res, next) => {
 });
 
 //post a new question - linked to User Profile : LEAVING FOR UPDATES
-router.post("/:userId", async (req, res, next) => {
+router.post("/:userId", validateJoiSchema, async (req, res, next) => {
   try {
     const questionData = {
       ...req.body,
