@@ -24,7 +24,7 @@ const answerSeeds = require("./answerSeeds.json");
 
 Profile.deleteMany({})
   .then(() => {
-    return User.insertMany(profileSeeds)
+    return Profile.insertMany(profileSeeds)
   })
   .then((data) => console.log(data))
   .catch((err) => {

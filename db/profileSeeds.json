@@ -1,49 +1,12 @@
 [
     {
-        "username":"1",
-        "password":"1",
-        "email":"lavaBoi@hotmail.com",
-        "name" : "Jonie B Jones",
-        "displayName" :  "spyBoi",
+        "name" : "test",
+        "displayName" :  "Test",
         "about": "Super Spy by day, super Coder By Night",
         "avatar" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6rULJa2YoAQgGxO8hQPB-tK-MALfteIoSgw&usqp=CAU",
          "twitter":"bBopBoy",
         "github": "bestCoderEver",
-         "user" : "620967249db96961aa97f3f4"
-    },
-    {
-        "username":"2",
-        "password":"2",
-        "email":"saLa@gmail.com",
-        "name" : "Lava Boy",
-        "displayName" : "northQuest",
-        "avatar" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE37YbH_wRd_dbCX8X-EB-I1zqA0Rb0Jju8g&usqp=CAU",
-        "twitter":"sneakySar",
-        "github": "codingCoder",
-        "user" : "620967249db96961aa97f3f5"
-    },
-    {
-        "username":"3",
-        "password":"3",
-        "email":"lax@aol.org",
-        "name" : "Ant Parker",
-        "displayName" : "twingly",
-        "about": "Hey, doing stuff here and there, ask me about it",
-        "avatar" : "https://avatarfiles.alphacoders.com/180/thumb-1920-180216.jpg",
-        "twitter":"auntAnt",
-        "github": "slashAnt",
-        "user": "620967249db96961aa97f3f6"
-    },
-    {
-        "username":"4",
-        "password":"4",
-        "email":"zd@hotmail.com",
-        "name" : "Zara D Doze",
-        "displayName" : "zaraCodes2day",
-        "about": "Hi! I am a passionate developer who by day works 9-5 at a company ryming with Zloogle, by night I am creating awesome AI!",
-        "avatar" : "https://forums.heroesofnewerth.com/uploads/monthly_2020_08/32.thumb.jpg.46c2cadec656a63e6e0a038d712ef439.jpg",
-        "twitter":"rainOnZain",
-        "github": "zarasDev",
-        "user" : "620967249db96961aa97f3f7"
+         "user" : "62096bbf9d7e298eb7c7445a"
     }
+   
 ]
