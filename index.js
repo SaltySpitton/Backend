@@ -41,6 +41,7 @@ require("./passportConfig")(passport);
 const userController = require("./controllers/users");
 const questionsControllers = require("./controllers/questions");
 const answerController = require("./controllers/answers");
+const userDataController = require("./controllers/userData");
 
 //  middleware
 const routeHit = async (req, res, next) => {
@@ -60,6 +61,7 @@ app.use(errorHandler);
 app.use("/users", userController);
 app.use("/questions", questionsControllers);
 app.use("/answers", answerController);
+app.use("/userData", userDataController);
 
 app.listen(port, () => {
   console.log(`🎉🎊' Port is connected at ${port}`);
