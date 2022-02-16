@@ -6,7 +6,7 @@ const Answer = require("../models/answers");
 const User = require("../models/users");
 const Profile = require ('../models/profiles.js')
 //const { get } = require("./users");
-
+//  committ update
 
 router.get("/", async(req,res,next) =>{
   try{
