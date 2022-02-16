@@ -9,7 +9,8 @@ const User = require("../models/users");
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
-    if (!user) res.send("No User Exists");
+    if(!user) res.status(500).json("No User Exists");
+    // if (!user) res.send("No User Exists");
     else {
       req.logIn(user, (err) => {
         if (err) throw err;

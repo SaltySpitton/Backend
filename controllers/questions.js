@@ -8,20 +8,22 @@ const { get } = require("./users");
 const validateJoiSchema = require("../middleware/joiSchema");
 const ExpressError = require("../middleware/expressError");
 
+// example       http://localhost:4200/questions?page=1&size=4   
+//page is the "offset, or starting page, size is the total items per page you want returned"
 router.get("/", async (req, res, next) => {
   const getPagination = (page, size) => {
-    const limit = size ? +size : 20;
+    const limit = size ? +size : 9999;
     const offset = page ? page * limit : 0;
     return { limit, offset };
   };
   try {
     if (req.query) {
       const { page, size, tags } = req.query;
-      let condition = tags
+       let condition = tags
         ? { tags: { $regex: new RegExp(tags), $options: "i" } }
         : {};
       const { limit, offset } = getPagination(page - 1, size);
-
+      
       allQuestions = await Question.paginate(condition, { offset, limit })
         .then((data) => {
           res.status(200).json({
@@ -69,16 +71,18 @@ router.post("/:userId", validateJoiSchema, async (req, res, next) => {
 router.get("/:questionId", async (req, res, next) => {
   try {
     let answers;
+  
     const question = await Question.findById(req.params.questionId);
-    question
-      ? (answers = await question.populate({
+    const user = await User.findById(question.user)
+    question ? 
+      (answers = await question.populate({
           path: "answers",
           model: "Answer",
-        }))
-      : res.status(400).json({ error: "No Question Found" });
-
+        })) :
+      res.status(400).json({ error: "No Question Found" });
+  
     answers
-      ? res.status(200).json(question)
+      ? res.status(200).json({...question, user})
       : res.status(400).json({ error: error.message });
   } catch (err) {
     next(err);
