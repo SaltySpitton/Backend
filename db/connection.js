@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
-const mongoURI = 'mongodb+srv://SaltySpitoon:SpongeAtlas@cluster0.ng5bv.mongodb.net/devHelp?retryWrites=true&w=majority'
+// const mongoURI = 'mongodb+srv://SaltySpitoon:SpongeAtlas@cluster0.ng5bv.mongodb.net/devHelp?retryWrites=true&w=majority'
+const mongoURI = 'mongodb://localhost:27017/devHelp'
 
 mongoose.connect(mongoURI, {
     useNewUrlParser: true, 
