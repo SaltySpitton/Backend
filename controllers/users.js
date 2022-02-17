@@ -32,20 +32,25 @@ router.post("/register", (req, res) => {
         password: hashedPassword,
         email: req.body.email,
       });
+
       await newUser.save();
       req.logIn(newUser, (err) => {
         if (err) throw err;
       });
+      const newProfile = new Profile({
+        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6rULJa2YoAQgGxO8hQPB-tK-MALfteIoSgw&usqp=CAU",
+        user: req.user.id
+      })
+      await newProfile.save()
       console.log(req.user, "Was Created and LoggedIn");
+      console.log(newProfile, " New Profile was created");
       res.send("User Created and LoggedIn");
       // res.redirect('http://localhost:3000/questions');
     }
   });
 });
-router.get("/", async(req, res, next) => {
-  // const allUsers = await User.find({})
-  //console.log(allUsers)
-  // res.status(200).json(allUsers)
+
+router.get("/", (req, res) => {
   console.log(req.user);
   res.status(200).json(req.user)
   // res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.

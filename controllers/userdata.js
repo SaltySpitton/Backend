@@ -17,12 +17,11 @@ router.get("/", async(req,res,next) =>{
   }
 })
 
-
 router.get("/:id", async (req, res, next) => {
   try {
 
-   let id = req.params.id
-     const findProfile = await Profile.findById(id)
+    let userId = req.params.id
+    const findProfile = await Profile.find({ user: userId })
 
       res.status(200).json(findProfile)
   
@@ -31,22 +30,19 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.put ('/:profileId/:userId', async (req,res,next) => {
+router.put('/:profileId/:userId', async (req, res, next) => {
   try {
-
-    
     const newProfile = await Profile.findByIdAndUpdate(req.params.profileId,req.body, {new:true}) 
       newProfile?
       res.status(200).json(newProfile) :
-      res.status(400).json({error: error.message})
-
+        res.status(400).json({ error: error.message })
    } 
   catch(err){
      next(err)
   }
 })
 
-//post 
+// post 
 // router.post('/:profileId/:userId', async(req,res, next) => {
 //   try{
 //       //currentUser to be edited once have exact pulling needs : params will be deleted
