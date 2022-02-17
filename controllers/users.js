@@ -5,6 +5,7 @@ const passport = require("passport");
 const Question = require("../models/questions");
 const Answer = require("../models/answers");
 const User = require("../models/users");
+const Profile = require("../models/profiles")
 
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
@@ -38,11 +39,13 @@ router.post("/register", (req, res) => {
       req.logIn(newUser, (err) => {
         if (err) throw err;
       });
+
       const newProfile = new Profile({
         avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6rULJa2YoAQgGxO8hQPB-tK-MALfteIoSgw&usqp=CAU",
         user: req.user.id
       })
       await newProfile.save()
+
       console.log(req.user, "Was Created and LoggedIn");
       console.log(newProfile, " New Profile was created");
       res.send("User Created and LoggedIn");
