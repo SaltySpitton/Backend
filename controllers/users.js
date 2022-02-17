@@ -9,8 +9,7 @@ const User = require("../models/users");
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
-    if(!user) res.status(500).json("No User Exists");
-    // if (!user) res.send("No User Exists");
+    if (!user) res.send("No User Exists");
     else {
       req.logIn(user, (err) => {
         if (err) throw err;
@@ -43,11 +42,15 @@ router.post("/register", (req, res) => {
     }
   });
 });
-router.get("/", (req, res) => {
+router.get("/", async(req, res, next) => {
+  // const allUsers = await User.find({})
+  //console.log(allUsers)
+  // res.status(200).json(allUsers)
   console.log(req.user);
   res.status(200).json(req.user)
   // res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
+
 
 router.get("/logout", (req, res) => {
   req.logout();

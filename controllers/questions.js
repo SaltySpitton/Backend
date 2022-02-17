@@ -24,27 +24,30 @@ router.get("/", async (req, res, next) => {
         : {};
       const { limit, offset } = getPagination(page - 1, size);
       
-      allQuestions = await Question.paginate(condition, { offset, limit })
+      allQuestions = await Question.paginate(condition, { offset, limit, populate: "user"})
         .then((data) => {
           res.status(200).json({
             totalItems: data.totalDocs,
-            questions: data.docs,
+            questions: data, 
             totalPages: data.totalPages,
             currentPage: data.page,
           });
         })
-        .catch((err) => {
+        .catch((error) => {
           res.status(500).json({
             error: error.message || "Error while retrieving Questions",
-          });
-        });
+          })
+        })
     } else {
-      allQuestions = await Question.find({});
-      allQuestions
-        ? res.status(200).json(allQuestions)
-        : res.status(400).json({
-            error: error.message || "Error while retrieving Questions",
-          });
+      allQuestions = await Question.find({})
+        .populate('user')
+
+      console.log(allQuestions)
+      allQuestions ? 
+      res.status(200).json(allQuestions) : 
+      res.status(400).json({
+          error: error.message || "Error while retrieving Questions",
+      })
     }
   } catch (err) {
     next(err);
@@ -72,17 +75,22 @@ router.get("/:questionId", async (req, res, next) => {
   try {
     let answers;
   
-    const question = await Question.findById(req.params.questionId);
-    const user = await User.findById(question.user)
+    const question = await Question.findById(req.params.questionId).populate('user')
+    const questAnswers = await question.populate('answers')
+    const answerUsers = await questAnswers.populate('user')
+    
+    // const user = await User.findById(question.user)
     question ? 
+    // answers = question.populate('answers'):
       (answers = await question.populate({
           path: "answers",
           model: "Answer",
         })) :
+      // answers = question.populate('user').populate('answers') :
       res.status(400).json({ error: "No Question Found" });
-  
     answers
-      ? res.status(200).json({...question, user})
+      ? res.status(200).json(question)
+      // ? res.status(200).json({...question, user})
       : res.status(400).json({ error: error.message });
   } catch (err) {
     next(err);
@@ -108,7 +116,7 @@ router.put("/:questionId", async (req, res, next) => {
   try {
     const editQuestion = await Question.findByIdAndUpdate(
       req.params.questionId,
-      req.body
+      req.body, {new: true}
     );
     editQuestion
       ? res.status(200).json(editQuestion)

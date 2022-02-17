@@ -18,7 +18,7 @@ router.post("/:questionId/:userId", async (req, res, next) => {
     const findQuestion = await Question.findById(req.params.questionId);
     const userAnswer = {
       ...req.body,
-      user: req.params.userId,
+      user: req.params.userId
     };
 
     const newAnswer = await Answer.create(userAnswer);
