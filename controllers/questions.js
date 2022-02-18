@@ -23,8 +23,8 @@ router.get("/", async (req, res, next) => {
         ? { tags: { $regex: new RegExp(tags), $options: "i" } }
         : {};
       const { limit, offset } = getPagination(page - 1, size);
-      
-      allQuestions = await Question.paginate(condition, { offset, limit, populate: "user"})
+
+      allQuestions = await Question.paginate(condition, { offset, limit, populate: "user" })
         .then((data) => {
           res.status(200).json({
             totalItems: data.totalDocs,
@@ -42,7 +42,7 @@ router.get("/", async (req, res, next) => {
       allQuestions = await Question.find({});
       allQuestions
         ? res.status(200).json(allQuestions)
-        : res.status(400).json({
+        : res.status(404).json({
             error: error.message || "Error while retrieving Questions",
           });
     }
@@ -61,7 +61,7 @@ router.post("/:userId", validateJoiSchema, async (req, res, next) => {
     const newQuestion = await Question.create(questionData);
     newQuestion
       ? res.status(200).json(newQuestion)
-      : res.status(400).json({ error: error.message });
+      : res.status(404).json({ error: error.message });
   } catch (err) {
     next(err);
   }
@@ -79,11 +79,11 @@ router.get("/:questionId", async (req, res, next) => {
           path: "answers",
           model: "Answer",
         })) :
-      res.status(400).json({ error: "No Question Found" });
+      res.status(404).json({ error: "No Question Found" });
   
     answers
       ? res.status(200).json({...question, user})
-      : res.status(400).json({ error: error.message });
+      : res.status(404).json({ error: error.message });
   } catch (err) {
     next(err);
   }
@@ -97,7 +97,7 @@ router.delete("/:questionId", async (req, res, next) => {
     });
     deleteQuestion
       ? res.status(200).json(deleteQuestion)
-      : res.status(400).json({ error: error.message });
+      : res.status(40).json({ error: error.message });
   } catch (err) {
     next(err);
   }
@@ -112,11 +112,15 @@ router.put("/:questionId", async (req, res, next) => {
     );
     editQuestion
       ? res.status(200).json(editQuestion)
-      : res.status(400).json({ error: error.message });
+      : res.status(404).json({ error: error.message });
   } catch (err) {
     next(err);
   }
 });
+
+
+
+
 
 module.exports = router;
 
