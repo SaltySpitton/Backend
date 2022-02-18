@@ -12,8 +12,14 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-  }
-  }, 
+  },
+  avatar: {
+    type: String,
+    default: function () {
+      return `https://secure.gravatar.com/avatar/${this._id}?s=90&d=identicon`;
+    }
+  },
+},
   {timestamps: true}
 );
 
