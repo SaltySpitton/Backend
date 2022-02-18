@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
-const mongoURI = 'mongodb+srv://SaltySpitoon:SpongeAtlas@cluster0.ng5bv.mongodb.net/devHelp?retryWrites=true&w=majority'
+
+const mongoURI = process.env.NODE_ENV === 'production'
+? process.env.DB_URL
+: process.env.MONGODB_URI 
 
 mongoose.connect(mongoURI, {
     useNewUrlParser: true, 

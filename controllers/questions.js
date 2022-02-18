@@ -23,7 +23,7 @@ router.get("/", async (req, res, next) => {
         ? { tags: { $regex: new RegExp(tags), $options: "i" } }
         : {};
       const { limit, offset } = getPagination(page - 1, size);
-      
+
       allQuestions = await Question.paginate(condition, { offset, limit, populate: "user" })
         .then((data) => {
           res.status(200).json({
