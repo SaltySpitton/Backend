@@ -42,7 +42,7 @@ require("./passportConfig")(passport);
 const userController = require("./controllers/users");
 const questionsControllers = require("./controllers/questions");
 const answerController = require("./controllers/answers");
-const userDataController = require("./controllers/userData");
+const userDataController = require("./controllers/userdata");
 
 //  middleware
 const routeHit = async (req, res, next) => {
