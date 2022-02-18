@@ -64,6 +64,18 @@ router.get("/logout", (req, res) => {
   // console.log("user logged out")
 });
 
+
+router.get("/:userId/questions", async(req,res,next) => {
+   try{
+    const allUserQuestions = await Question.find({user: req.params.userId}).populate('answers')
+    allUserQuestions ? 
+    res.status(200).json(allUserQuestions) :
+    res.status(404).json({ error: error.message });
+  }catch(err){
+    next(err)
+  }
+})
+
 //EDIT USER
 //DELETE USER
 
