@@ -36,7 +36,7 @@ router.post("/:questionId/:userId", async (req, res, next) => {
 //get : VIEW Specefic Answer:
 router.get("/:answerId", async (req, res, next) => {
   try {
-    const answer = await Answer.findById(req.params.answerId);
+    const answer = await Answer.findById(req.params.answerId).populate("user")
     answer
       ? res.status(200).json(answer)
       : res.status(400).json({ error: "Error No Answer Found" });
