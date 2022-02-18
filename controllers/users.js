@@ -59,7 +59,7 @@ router.get("/", (req, res) => {
   // res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
 
-router.get("/logout", (req, res) => {
+router.post("/logout", (req, res) => {
   req.logout();
   res.send("user logged out");
   // res.redirect('http://localhost:3000/questions');

@@ -24,7 +24,7 @@ router.get("/", async (req, res, next) => {
         : {};
       const { limit, offset } = getPagination(page - 1, size);
       
-      allQuestions = await Question.paginate(condition, { offset, limit })
+      allQuestions = await Question.paginate(condition, { offset, limit, populate: "user"})
         .then((data) => {
           res.status(200).json({
             totalItems: data.totalDocs,
