@@ -7,6 +7,27 @@ const Answer = require("../models/answers");
 const User = require("../models/users");
 const Profile = require("../models/profiles")
 
+router.get("/", async (req, res, next) => {
+  // const { users } = req.query
+  try{
+    // if(req.query){
+    //   const username = new RegExp(searchQuery, "i") 
+    //   const matchingUsers = await User.find({username})
+    //   matchingUsers ?
+    //   res.status(200).json(matchingUsers) :
+    //   res.status(500).json({message: 'No User Found'})
+    // } 
+    console.log(req.user);
+    res.status(200).json(req.user)
+  }catch(err){
+    next(err)
+  }
+  // res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
+});
+
+
+
+
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
@@ -23,6 +44,7 @@ router.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 router.post("/register", (req, res) => {
+  console.log(req.body)
   User.findOne({ username: req.body.username }, async (err, doc) => {
     if (err) throw err;
     if (doc) res.send("User Already Exists");
@@ -53,11 +75,6 @@ router.post("/register", (req, res) => {
   });
 });
 
-router.get("/", (req, res) => {
-  console.log(req.user);
-  res.status(200).json(req.user)
-  // res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
-});
 
 router.post("/logout", (req, res) => {
   req.logout();

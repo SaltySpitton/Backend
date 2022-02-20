@@ -19,13 +19,26 @@ router.get("/", async (req, res, next) => {
   try {
     if (req.query) {
       const { page, size, tags } = req.query;
-       let condition = tags
-        ? { tags: { $regex: new RegExp(tags), $options: "i" } }
-        : {};
-      const { limit, offset } = getPagination(page - 1, size);
-
+      //const { page, size, tags, title } = req.query;
+        // let postTitle = new RegExp(title, "i")
+        let condition = tags ? 
+        { tags: { $regex: new RegExp(tags), $options: "i" } }  :
+        {};
+        const { limit, offset } = getPagination(page - 1, size);
+//.find({$or: [ {title}, {tags: {$in : tags.split(',')} }] })
       allQuestions = await Question.paginate(condition, { offset, limit, populate: "user" })
+      // allQuestions = await Question.paginate({ $or : [ { postTitle }, {condition}, { offset, limit, populate: "user" } ]})
+      // .populate('user')
+      // .populate('answers')
+      // .populate({
+      //   path: 'answers', 
+      //   populate: {
+      //     path: 'user'
+      //   }
+      // })
+      // .populate()
         .then((data) => {
+          console.log(data)
           res.status(200).json({
             totalItems: data.totalDocs,
             questions: data.docs,
@@ -38,14 +51,15 @@ router.get("/", async (req, res, next) => {
             error: error.message || "Error while retrieving Questions",
           });
         });
-    } else {
-      allQuestions = await Question.find({});
-      allQuestions
-        ? res.status(200).json(allQuestions)
-        : res.status(404).json({
-            error: error.message || "Error while retrieving Questions",
-          });
-    }
+      }
+  //   } else {
+  //     allQuestions = await Question.find({});
+  //     allQuestions
+  //       ? res.status(200).json(allQuestions)
+  //       : res.status(404).json({
+  //           error: error.message || "Error while retrieving Questions",
+  //         });
+  //   }
   } catch (err) {
     next(err);
   }
@@ -78,9 +92,12 @@ router.get("/:questionId", async (req, res, next) => {
       (answers = await question.populate({
           path: "answers",
           model: "Answer",
+          populate: {
+            path: 'user', 
+            model: 'User'
+          }
         })) :
       res.status(404).json({ error: "No Question Found" });
-  
     answers
       ? res.status(200).json({...question, user})
       : res.status(404).json({ error: error.message });

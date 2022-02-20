@@ -63,15 +63,16 @@ router.delete("/:questionId/:answerId", async (req, res, next) => {
 });
 
 //EDIT SPECEFIC ANSWER
-router.put("/:questionId/:answerId", async (req, res, next) => {
+//router.put("/:questionId/:answerId", async (req, res, next) => {
+router.put("/:answerId", async (req, res, next) => {
   const updatedAnswer = await Answer.findOneAndUpdate(
     { _id: req.params.answerId },
     req.body,
     { new: true }
-  );
+  )
   // updatedAnswer.save()
   updatedAnswer
-    ? res.status(200).json(updatedAnswer)
+    ? res.status(200).json({updatedAnswer})
     : res.status(400).json({ error: error.message });
 });
 
