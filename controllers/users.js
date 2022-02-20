@@ -5,12 +5,12 @@ const passport = require("passport");
 const Question = require("../models/questions");
 const Answer = require("../models/answers");
 const User = require("../models/users");
-const Profile = require("../models/profiles")
+const Profile = require("../models/profiles");
 
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
-    if(!user) res.status(500).json("No User Exists");
+    if (!user) res.status(500).json("No User Exists");
     // if (!user) res.send("No User Exists");
     else {
       req.logIn(user, (err) => {
@@ -36,14 +36,14 @@ router.post("/register", (req, res) => {
       });
 
       await newUser.save();
-      console.log(newUser)
+      console.log(newUser);
       req.logIn(newUser, (err) => {
         if (err) throw err;
       });
       const newProfile = new Profile({
-        user: req.user.id
-      })
-      await newProfile.save()
+        user: req.user.id,
+      });
+      await newProfile.save();
       console.log(req.user, "Was Created and LoggedIn");
       console.log(newProfile, " New Profile was created");
       res.status(200).json(req.user.id);
@@ -55,9 +55,22 @@ router.post("/register", (req, res) => {
 
 router.get("/", (req, res) => {
   console.log(req.user);
-  res.status(200).json(req.user)
+  res.status(200).json(req.user);
   // res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
+
+// router.get("/:userId", async (req, res, next) => {
+//   try {
+//     const userId = req.params.userId;
+//     const findUser = await User.findById(userId);
+//     console.log(findUser);
+//     findUser
+//       ? res.status(200).json(findUser)
+//       : res.status(400).json({ error: error.message });
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 router.post("/logout", (req, res) => {
   req.logout();
@@ -66,17 +79,18 @@ router.post("/logout", (req, res) => {
   // console.log("user logged out")
 });
 
-
-router.get("/:userId/questions", async(req,res,next) => {
-   try{
-    const allUserQuestions = await Question.find({user: req.params.userId}).populate('answers')
-    allUserQuestions ? 
-    res.status(200).json(allUserQuestions) :
-    res.status(404).json({ error: error.message });
-  }catch(err){
-    next(err)
+router.get("/:userId/questions", async (req, res, next) => {
+  try {
+    const allUserQuestions = await Question.find({
+      user: req.params.userId,
+    }).populate("answers");
+    allUserQuestions
+      ? res.status(200).json(allUserQuestions)
+      : res.status(404).json({ error: error.message });
+  } catch (err) {
+    next(err);
   }
-})
+});
 
 //EDIT USER
 //DELETE USER
