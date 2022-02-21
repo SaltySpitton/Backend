@@ -15,13 +15,14 @@ const errorHandler = require("./middleware/errorHandler");
 const joi = require("joi");
 
 
+
 app.set('port', process.env.PORT || 4200);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin: process.env.PRODUCTION ? process.env.FRONT_END_URL : "http://localhost:3000", // <-- location of the react app were connecting to
+    origin: process.env.PRODUCTION ? process.env.FRONT_END_URL : "*", // <-- location of the react app were connecting to
     credentials: true,
   })
 );
