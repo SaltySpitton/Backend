@@ -111,7 +111,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 
-1. For Client Details Refer to [StackDevHelp Frontend Repo](https://github.com/SaltySpitton/Backend)
+1. For Client Details Refer to [StackDevHelp Frontend Repo](https://github.com/SaltySpitton/Frontend)
 2. Clone the repo
    ```sh
    git clone https://github.com/SaltySpitton/Backend.git
