@@ -38,7 +38,7 @@
   <p align="center">
     Current Verion: MVP Release V.0.1
     <br/>
-    StackDevHelp is Simplified & Friendly Clone of StackOverflow developed specially for all Code Newbies who are afraid to ask their questions on the real stackOverFlow. 
+    StackDevHelp is Simplified & Friendly Clone of StackOverflow developed specially for all Code Newbies who are afraid to ask their questions on the real StackOverFlow. 
     <br />
     <a href="https://github.com/SaltySpitton/Backend"><strong>Explore the docs »</strong></a>
     <br />
@@ -148,12 +148,12 @@ To get a local copy up and running follow these simple example steps.
 - [x] Footer with Helpful Resources and creators of the application
 
 ## Stretch Goals
-- [] As a user, I can mark my an answer to my question as accepted.
-- [] As a user, I can see all the questions I have asked in my account dashboard
-- [] As a user, I can change my profile photo
-- [] As a user, my account gets badges based on my participation (Editor, Bronze, Silver, Gold)
-- [] As a user, I can add create articles for the community to learn more about the topics I know related to Software Engineering
-- [] As a user, I can see open job opportunities on the sidebar that directs me to where I can apply.
+- [ ] As a user, I can mark my an answer to my question as accepted.
+- [ ] As a user, I can see all the questions I have asked in my account dashboard
+- [ ] As a user, I can change my profile photo
+- [ ] As a user, my account gets badges based on my participation (Editor, Bronze, Silver, Gold)
+- [ ] As a user, I can add create articles for the community to learn more about the topics I know related to Software Engineering
+- [ ] As a user, I can see open job opportunities on the sidebar that directs me to where I can apply.
 
 
 See the [open issues](https://github.com/SaltySpitton/Backend/issues) for a full list of proposed features (and known issues).
