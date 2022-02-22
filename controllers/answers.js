@@ -62,17 +62,32 @@ router.delete("/:questionId/:answerId", async (req, res, next) => {
   } catch (err) {}
 });
 
-//EDIT SPECEFIC ANSWER
-router.put("/:questionId/:answerId", async (req, res, next) => {
+
+//sylvie edit answer / Put route (votes etc)
+router.put("/:answerId", async (req, res, next) => {
   const updatedAnswer = await Answer.findOneAndUpdate(
     { _id: req.params.answerId },
     req.body,
     { new: true }
-  );
+  )
   // updatedAnswer.save()
   updatedAnswer
-    ? res.status(200).json(updatedAnswer)
+    ? res.status(200).json({updatedAnswer})
     : res.status(400).json({ error: error.message });
 });
+
+
+//EDIT SPECEFIC ANSWER : old version
+// router.put("/:questionId/:answerId", async (req, res, next) => {
+//   const updatedAnswer = await Answer.findOneAndUpdate(
+//     { _id: req.params.answerId },
+//     req.body,
+//     { new: true }
+//   );
+//   // updatedAnswer.save()
+//   updatedAnswer
+//     ? res.status(200).json(updatedAnswer)
+//     : res.status(400).json({ error: error.message });
+// });
 
 module.exports = router;
