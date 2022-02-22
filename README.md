@@ -148,7 +148,7 @@ To get a local copy up and running follow these simple example steps.
 - [x] Footer with Helpful Resources and creators of the application
 
 ## Stretch Goals
-- [ ] As a user, I can mark my an answer to my question as accepted.
+- [ ] As a user, I can mark an answer to my question as accepted.
 - [ ] As a user, I can see all the questions I have asked in my account dashboard
 - [ ] As a user, I can change my profile photo
 - [ ] As a user, my account gets badges based on my participation (Editor, Bronze, Silver, Gold)
