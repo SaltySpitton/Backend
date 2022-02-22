@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin: process.env.PRODUCTION ? process.env.FRONT_END_URL : "http://localhost:3000", // <-- location of the react app were connecting to
+    origin: process.env.PRODUCTION ? process.env.FRONT_END_URL : "https://stackdevhelp.herokuapp.com", // <-- location of the react app were connecting to
     credentials: true,
   })
 );
