@@ -21,12 +21,13 @@ router.post("/:questionId/:userId", async (req, res, next) => {
       user: req.params.userId,
     };
 
-    const newAnswer = await Answer.create(userAnswer);
+    const newAnswer = await Answer.create(userAnswer)
     const addedAnswer = await findQuestion.answers.push(newAnswer);
+    const answerRes = await Answer.findById(newAnswer._id).populate('user')
     await findQuestion.save();
 
     addedAnswer
-      ? res.status(200).json(newAnswer)
+      ? res.status(200).json(answerRes)
       : res.status(400).json({ error: error.message });
   } catch (err) {
     next(err);
