@@ -2,6 +2,7 @@ const { mongo } = require("mongoose");
 const mongoose = require("../db/connection");
 const mongoosePaginate = require("mongoose-paginate-v2");
 const { query } = require("express");
+const Answer = require("./answers")
 
 const questionSchema = new mongoose.Schema(
   {
