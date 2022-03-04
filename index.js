@@ -15,6 +15,7 @@ const errorHandler = require("./middleware/errorHandler");
 const joi = require("joi");
 
 
+
 app.set('port', process.env.PORT || 4200);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -43,7 +44,7 @@ require("./passportConfig")(passport);
 const userController = require("./controllers/users");
 const questionsControllers = require("./controllers/questions");
 const answerController = require("./controllers/answers");
-const userDataController = require("./controllers/userData");
+const userDataController = require("./controllers/userdata");
 
 //  middleware
 const routeHit = async (req, res, next) => {
