@@ -92,7 +92,7 @@ router.delete("/:questionId", async (req, res, next) => {
     })
     deleteQuestion ?
       res.status(200).json(deleteQuestion) : 
-      res.status(40).json({ error: error.message })
+      res.status(404).json({ error: error.message })
   } catch (err) {
     next(err)
   }

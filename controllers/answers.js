@@ -21,12 +21,13 @@ router.post("/:questionId/:userId", async (req, res, next) => {
       user: req.params.userId,
     };
 
-    const newAnswer = await Answer.create(userAnswer);
+    const newAnswer = await Answer.create(userAnswer)
     const addedAnswer = await findQuestion.answers.push(newAnswer);
+    const answerRes = await Answer.findById(newAnswer._id).populate('user')
     await findQuestion.save();
 
     addedAnswer
-      ? res.status(200).json(newAnswer)
+      ? res.status(200).json(answerRes)
       : res.status(400).json({ error: error.message });
   } catch (err) {
     next(err);
@@ -48,13 +49,10 @@ router.get("/:answerId", async (req, res, next) => {
 //delete  ANSWER
 router.delete("/:questionId/:answerId", async (req, res, next) => {
   try {
+    const question = await Question.findByIdAndUpdate(req.params.questionId, { $pull: { answers: req.params.answerId } });
     const deleteAnswer = await Answer.findByIdAndDelete(req.params.answerId);
-    const question = await Question.findById(req.params.questionId);
-    await question.save();
-    await question.populate({
-      path: "answers",
-      model: "Answer",
-    });
+    console.log("Answer Deleted:", deleteAnswer)
+    console.log("Question Updated:", question)
 
     deleteAnswer
       ? res.status(200).json(deleteAnswer)

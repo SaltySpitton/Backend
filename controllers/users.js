@@ -74,7 +74,7 @@ router.get("/:userId/questions", async(req,res,next) => {
 
 router.get("/:userId/answers", async(req,res,next) => {
   try{
-   const allUserAnswers = await Answer.find({user: req.params.userId}).populate("answers")
+    const allUserAnswers = await Answer.find({ user: req.params.userId })
    allUserAnswers ? 
    res.status(200).json(allUserAnswers) :
    res.status(404).json({ error: error.message })
