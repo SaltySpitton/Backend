@@ -5,10 +5,17 @@ const Answer = require("../models/answers");
 const User = require("../models/users");
 const { append } = require("express/lib/response");
 
-// Once play with front end - I believe we can take the :questionId param OFF of:
-//viewing specefic answer
-//deleting specific answer
-// editing specefic answer
+// GET ALL ANSWERS: for search queries (dani)
+// router.get("/", async (req, res, next) => {
+//   try {
+//     const allAnswers = await Answer.find({})
+//     allAnswers
+//       ? res.status(200).json(allAnswers)
+//       : res.status(400).json({ error: error.message })
+//   } catch (err) {
+//     next(err)
+//   }
+// })
 
 //post new Answer - only available when logged in
 router.post("/:questionId/:userId", async (req, res, next) => {
