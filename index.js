@@ -22,8 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", 'http://stackdevhelp.herokuapp.com/', 'http://stackdevhelp.herokuapp.com/*', '*'],
-    methods: "GET,PUT,PATCH,POST,DELETE",
+    origin: process.env.PRODUCTION ? process.env.FRONT_END_URL : "https://stackdevhelp.herokuapp.com", // <-- location of the react app were connecting to
     credentials: true,
   })
 );
